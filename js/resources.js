@@ -1,0 +1,1 @@
+const apiAnnotates = "https://script.google.com/macros/s/AKfycbwGBeKVxX3kBLbEqvBMX1rs5f_aaMnKSVf47xTT8F-3UZ28c_-4/exec";

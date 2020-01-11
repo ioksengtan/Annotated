@@ -1,0 +1,88 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/codemirror.js"></script>
+<link rel="stylesheet" href="css/codemirror.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="js/website.js"></script>
+<link rel="stylesheet" type="text/css" href="css/trix.css">
+<script type="text/javascript" src="js/trix.js"></script>
+<script type="text/javascript">
+function SetCwinHeight()
+{
+var iframeid=document.getElementById("mainframe"); //iframe id
+  if (document.getElementById)
+  {
+   if (iframeid && !window.opera)
+   {
+    if (iframeid.contentDocument && iframeid.contentDocument.body.offsetHeight)
+     {
+       iframeid.height = iframeid.contentDocument.body.offsetHeight;
+     }else if(iframeid.Document && iframeid.Document.body.scrollHeight)
+     {
+       iframeid.height = iframeid.Document.body.scrollHeight;
+      }
+    }
+   }
+}
+</script>
+<title>Annotated</title>
+</head>
+<body style="height:100%">
+  <a href="#" class="w3-bar-item w3-button w3-hover-Khaki">Home</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Website Digest <i class="fa fa-caret-down"></i></button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="#" class="w3-bar-item w3-button">Stratechery</a>
+      <a href="#" class="w3-bar-item w3-button">IndieHackers</a>
+    </div>
+  </div>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Podcast Digest <i class="fa fa-caret-down"></i></button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="#" class="w3-bar-item w3-button">IndieHackers</a>
+	  <a href="#" class="w3-bar-item w3-button">Acquired</a>
+	  <a href="#" class="w3-bar-item w3-button">TechBuzz</a>
+	  <a href="#" class="w3-bar-item w3-button">Others</a>
+    </div>
+  </div>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Courses <i class="fa fa-caret-down"></i></button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="#" class="w3-bar-item w3-button">How to Start a Startup</a>
+
+    </div>
+  </div>  
+  <a href="#" class="w3-bar-item w3-button w3-hover-Khaki">Wish List</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-Khaki">About</a>
+</div>
+<div class="w3-cell-row"">
+<a href="../index.html">Home</a> > <a>Website 
+Digest</a> > <a>Stratechery</a> > <a href = "https://stratechery.com/2019/the-2019-stratechery-year-in-review/">The 2019 Stratechery Year in Review</a>
+</div>
+<div class="w3-cell-row" style="height:100%;">
+
+  <div class="w3-half w3-container" style="width:50%">
+<p>
+
+</p>
+
+<iframe src="https://stratechery.com/2019/the-2019-stratechery-year-in-review/" height="100%" width="100%"></iframe>
+  </div>
+
+  <div class="w3-half w3-container">
+   <form>
+  <input id="x" value="Editor content goes here" type="hidden" name="content">
+  <trix-editor input="x"></trix-editor>
+</form>
+            <div class="">
+                <textarea id="text-input" style="width:100%" rows="30">
+                
+                </textarea>
+            </div>
+  </div>
+
+</div>
+</body>
+</html>

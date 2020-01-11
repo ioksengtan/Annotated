@@ -12,15 +12,15 @@ function update(){
 	$.post(apiAnnotates,		
 		{                    
 			"command": "commandPostAnnotateById",
-			"id":5,//dict_queries['id'],
+			"id":dict_queries['id'],
 			"source":annotate_source,
 			"type":annotate_type,
-			"title":"title",
-			"link":"link",
-			"date":"date",
-			"annotate":"annotate",
-			"annotate_date":"annotate_date",
-			"is_delete":"is_delete"
+			"title":$('#input_title').val(),
+			"link":$('#input_link').val(),
+			"date":$('#input_date').val(),
+			"annotate":editor.doc.getValue(),
+			"annotate_date":"20200111",
+			"is_delete":"0"
         },function(data){
 			console.log(data);
 			//let table_json = data;
@@ -121,6 +121,8 @@ $(document).ready(function(e) {
 	annotate_type = window.location.href.split('/')[indexUrlHome+1];
 	annotate_source = window.location.href.split('/')[indexUrlHome+2];
 	render_html = new Render_html;
+	
+	
 	if(url_query == ""){
 		console.log('index');
 		$('#div_edit').show();
@@ -133,14 +135,15 @@ $(document).ready(function(e) {
 		$.get(apiAnnotates,		
 		{                    
 			"command": "commandGetAnnotatesByTypeSource",
-        "source":annotate_source,
-        "type":annotate_type
+			"source":annotate_source,
+			"type":annotate_type
         },function(data){
 			//console.log(data);
 			let table_json = data;
 			table = new Table(table_json);
 			render_html.render_list_html_from_array($('#website_list'),table.get_col_by_header('title'), table.get_col_by_header('id'))
 			replaceText(editor, table.get_col_by_header('annotate')[table.get_col_by_header('title').indexOf('@index')]);
+			
 		})
 		
 	}else{ // load annotates for specific id
@@ -169,6 +172,9 @@ $(document).ready(function(e) {
 				//table.get_col_by_header('link')
 				render_html.render_iframe_html_from_link($('#iframe'),table.get_col_by_header('link')[0])
 				replaceText(editor, table.get_col_by_header('annotate')[0])
+				$('#input_link').val(table.table_json.data[0][table.table_json.headers.indexOf('link')])
+				$('#input_title').val(table.table_json.data[0][table.table_json.headers.indexOf('title')])
+				$('#input_date').val(table.table_json.data[0][table.table_json.headers.indexOf('date')])
 			})
 		}else{
 			console.log('there is no id in queries');

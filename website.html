@@ -1,0 +1,91 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/codemirror.js"></script>
+<link rel="stylesheet" href="css/codemirror.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/3393232787.js" crossorigin="anonymous"></script>
+<script src="js/website.js"></script>
+<script type="text/javascript">
+function SetCwinHeight()
+{
+var iframeid=document.getElementById("mainframe"); //iframe id
+  if (document.getElementById)
+  {
+   if (iframeid && !window.opera)
+   {
+    if (iframeid.contentDocument && iframeid.contentDocument.body.offsetHeight)
+     {
+       iframeid.height = iframeid.contentDocument.body.offsetHeight;
+     }else if(iframeid.Document && iframeid.Document.body.scrollHeight)
+     {
+       iframeid.height = iframeid.Document.body.scrollHeight;
+      }
+    }
+   }
+}
+</script>
+<title>Annotated</title>
+</head>
+<body style="height:100%">
+  <a href="#" class="w3-bar-item w3-button w3-hover-Khaki">Home</a>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Website Digest <i class="fa fa-caret-down"></i></button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="#" class="w3-bar-item w3-button">Stratechery</a>
+      <a href="#" class="w3-bar-item w3-button">IndieHackers</a>
+    </div>
+  </div>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Podcast Digest <i class="fa fa-caret-down"></i></button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="#" class="w3-bar-item w3-button">IndieHackers</a>
+	  <a href="#" class="w3-bar-item w3-button">Acquired</a>
+	  <a href="#" class="w3-bar-item w3-button">TechBuzz</a>
+	  <a href="#" class="w3-bar-item w3-button">Others</a>
+    </div>
+  </div>
+  <div class="w3-dropdown-hover">
+    <button class="w3-button">Courses <i class="fa fa-caret-down"></i></button>
+    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="#" class="w3-bar-item w3-button">How to Start a Startup</a>
+
+    </div>
+  </div>  
+  <a href="#" class="w3-bar-item w3-button w3-hover-Khaki">Wish List</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-Khaki">About</a>
+</div>
+<div class="w3-cell-row"">
+<a href="../index.html"><i class="fa fa-home"></i></a> > <a>Website 
+</a> > <a>Stratechery</a> > <a href = "https://stratechery.com/2019/the-2019-stratechery-year-in-review/">The 2019 Stratechery Year in Review</a>
+</div>
+<div class="w3-cell-row" style="height:100%;">
+
+  <div class="w3-half w3-container" style="width:50%">
+<p>
+
+</p>
+
+<iframe src="https://stratechery.com/2019/the-2019-stratechery-year-in-review/" height="100%" width="100%"></iframe>
+  </div>
+<i class="far fa-edit" onclick="mode_edit()"></i>
+<i class="fas fa-eye" onclick="mode_view()"></i>
+	
+  <div class="w3-half w3-container">
+			<div id="div_view" style="display:none">test view</div>
+            <div class="" id="div_edit">
+                <textarea id="text-input" style="width:100%" rows="30">
+                REID HOFFMAN: Silicon Valley tends to lionize entrepreneurs who take hairpin turns in their careers. The sharper the turn, the greater your prestige. Steve Jobs made his name not just at Apple but through his diversion to Pixar and back again. Elon Musk is approaching demigod status with Tesla. SpaceX. Hyperloop. And the Boring Company. His career is downright swashbuckling.
+
+
+Those daring, shape-shifting figures can inspire us to shoot for the stars and burrow through the earth — at the same time. But watch them too closely, and you may derail your own destiny. You may start telling yourself something like this.
+REID HOFFMAN: Silicon Valley tends to lionize entrepreneurs who take hairpin turns in their careers. The sharper the turn, the greater your prestige. Steve Jobs made his name not just at Apple but through his diversion to Pixar and back again. Elon Musk is approaching demigod status with Tesla. SpaceX. Hyperloop. And the Boring Company. His career is downright swashbuckling.
+ 
+                </textarea>
+            </div>
+  </div>
+
+</div>
+</body>
+</html>
