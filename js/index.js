@@ -9,21 +9,19 @@
   }
 
 function update(){
-  $('#save_state').text('[pending]')
 	$.post(apiAnnotates,
 		{
 			"command": "commandPostAnnotateById",
-			"id":dict_queries['id'],
-			"tag":$('#input_tag').val(),
-			"title":$('#input_title').val(),
-			"link":$('#input_link').val(),
-			"date":$('#input_date').val(),
-			"annotate":editor.doc.getValue(),
-			"annotate_date":"20200111",
-			"is_delete":"0"
+			"id":5,//dict_queries['id'],
+			"source":annotate_tag,
+			"title":"title",
+			"link":"link",
+			"date":"date",
+			"annotate":"annotate",
+			"annotate_date":"annotate_date",
+			"is_delete":"is_delete"
         },function(data){
-			//console.log(data);
-      $('#save_state').text('[Saved]')
+			console.log(data);
 			//let table_json = data;
 			//table = new Table(table_json);
 			//render_html.render_list_html_from_array($('#website_list'),table.get_col_by_header('title'), table.get_col_by_header('id'))
@@ -119,36 +117,30 @@ function ConvertImgToBase64(file) {
 $(document).ready(function(e) {
 	url_query = window.location.search;
 	let indexUrlHome = window.location.href.split('/').indexOf('Annotated')
-	annotate_type = window.location.href.split('/')[indexUrlHome+1];
-	annotate_source = window.location.href.split('/')[indexUrlHome+2];
 	render_html = new Render_html;
-
-
-	if(url_query == ""){
+	if(url_query == ""){ //main page
 		console.log('index');
 		$('#div_edit').show();
 		$('#div_iframe').hide();
 		$('#div_main').show();
 		$('#div_view').hide();
-
+    $('#edit_annotate').hide();
 
 
 		$.get(apiAnnotates,
 		{
-			"command": "commandGetAnnotatesByTypeSource",
-			"source":annotate_source,
-			"type":annotate_type
+			"command": "commandGetAllAnnotates",
         },function(data){
 			//console.log(data);
 			let table_json = data;
 			table = new Table(table_json);
 			render_html.render_list_html_from_table($('#website_list'),table)
 			replaceText(editor, table.get_col_by_header('annotate')[table.get_col_by_header('title').indexOf('@index')]);
-
 		})
 
 	}else{ // load annotates for specific id
 		$('#welcome').hide();
+    $('#edit_annotate').show();
 		url_queries = url_query.split('?')[1].split('&');
 		num_url_query = url_queries.length;
 		dict_queries = {};
@@ -173,9 +165,6 @@ $(document).ready(function(e) {
 				//table.get_col_by_header('link')
 				render_html.render_iframe_html_from_link($('#iframe'),table.get_col_by_header('link')[0])
 				replaceText(editor, table.get_col_by_header('annotate')[0])
-				$('#input_link').val(table.table_json.data[0][table.table_json.headers.indexOf('link')])
-				$('#input_title').val(table.table_json.data[0][table.table_json.headers.indexOf('title')])
-				$('#input_date').val(table.table_json.data[0][table.table_json.headers.indexOf('date')])
 			})
 		}else{
 			console.log('there is no id in queries');
