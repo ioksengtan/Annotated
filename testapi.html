@@ -3,7 +3,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="./js/codemirror.js"></script>
-	<script src="./js_general/table.js"></script>
+	
 	<script src="./js_general/render_html.js"></script>
     <script src="./js/resources.js"></script>
     <link rel="stylesheet" href="./css/codemirror.css">
@@ -11,14 +11,15 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/3393232787.js" crossorigin="anonymous"></script>
-    <script src="./js/edit.js"></script>
+    <script src="./js_general/api.js"></script>
 
     <title>Annotated</title>
 </head>
 
 <body style="height:100%">
     <a href="./index.html" class="w3-bar-item w3-button w3-hover-Khaki"><b>Annotates</b></a>
-    <button class="w3-button"><a href="new.html">New Annotate</a></button>
+      <button class="w3-button"><a href="new.html">New Annotate</a></button>
+        <button class="w3-button" id="edit_annotate"><a href="edit.html">Edit</a></button>
     <!--
     <div class="w3-dropdown-hover">
         <button class="w3-button">Website <i class="fa fa-caret-down"></i></button>
@@ -49,7 +50,7 @@
 
         </div>
     </div>
-    -->
+  -->
 	<!--
     <a href="#" class="w3-bar-item w3-button w3-hover-Khaki">Wish List</a>
     <a href="#" class="w3-bar-item w3-button w3-hover-Khaki">About</a>
@@ -60,48 +61,27 @@
 </div>
 <div class="w3-cell-row" style="height:100%;">
 
-<form class="w3-container">
 
-<label class=""><b>title</b></label>
-<input class="w3-input w3-border" type="text" id="input_title">
-
-<label class=""><b>tag</b></label>
-<input class="w3-input w3-border" type="text" id="input_tag">
-
-
-<label class=""><b>link</b></label>
-<input class="w3-input w3-border" type="text" id="input_link">
-
-<label class=""><b>date</b></label>
-<input class="w3-input w3-border" type="text" id="input_date">
-
-</form>
-
-
-  <div class="w3-half w3-container" style="width:50%" id="div_iframe">
-<i> [] </i>
-<iframe height="100%" width="100%" id="iframe" scrolling="no"></iframe>
-  </div>
-    <div class="w3-half w3-container" style="width:50%" id="div_main">
+    <div class="w3-half w3-container" style="width:100%" id="div_main">
 		<div id="welcome">Welcome to Annotated!
-		<p>following websites have been annotated:
+		<p>following pages have been annotated:
 		</p>
 		</div>
-		<div id="website_list"></div>
+		<div id="website_list" class="repeat" data-api="https://script.google.com/macros/s/AKfycbwGBeKVxX3kBLbEqvBMX1rs5f_aaMnKSVf47xTT8F-3UZ28c_-4/exec" data-cmd="commandGetAllAnnotates">
+			<div class="template">
+			
+			</div>
+		</div>
+		<div id="website_list2" class="repeat" data-api="https://script.google.com/macros/s/AKfycbwGBeKVxX3kBLbEqvBMX1rs5f_aaMnKSVf47xTT8F-3UZ28c_-4/exec" data-cmd="commandGetAllAnnotates2">
+			<div class="template">
+			
+			</div>
+		</div>
     </div>
 
 <i onclick="mode_edit()"> <a href="#">[Markdown]</a> </i>
-<i onclick="update()"> <a href="#" id="save_state">[Save]</a> </i>
 <i> [View] </i>
 
-  <div class="w3-half w3-container">
-			<div id="div_view" style="display:none">test view</div>
-            <div class="" id="div_edit">
-                <textarea id="text-input" style="width:100%" rows="30">
-                test
-                </textarea>
-            </div>
-  </div>
 
 </div>
 </body>
