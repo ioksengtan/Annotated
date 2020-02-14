@@ -30,30 +30,33 @@ class Table {
 $(document).ready(function(e) {
 	//console.log(document.getElementById('website_list').attributes['data-api'].value);
 	//$('.repeat')[0].attributes['data-api'].value
-	let num_repeat_div = $('.repeat').length;
+	let num_repeat_div = $('.loop').length;
 	let list_api_cmd = []
 	list_table = [];
 	for(var i_repeat_div=0; i_repeat_div < num_repeat_div; i_repeat_div++){
 		let tmp_api_cmd = {};
-		tmp_api_cmd.api = $('.repeat')[i_repeat_div].attributes['data-api'].value;
-		tmp_api_cmd.cmd = $('.repeat')[i_repeat_div].attributes['data-cmd'].value;
+		tmp_api_cmd.api = $('.loop')[i_repeat_div].attributes['data-api'].value;
+		tmp_api_cmd.cmd = $('.loop')[i_repeat_div].attributes['data-cmd'].value;
 		list_api_cmd.push(tmp_api_cmd);
-		$.get(tmp_api_cmd.api,
+		$.get(
+			tmp_api_cmd.api,
 			{
 				"command": tmp_api_cmd.cmd
-			},function(data){
+			},
+			( data )=>{
 				console.log(data);
 				//let table[i_repeat_div] = new Table(data);
 				let table = new Table(data);
 				list_table.push(table);
+				//render_html(table, dom_template);
 			}
 		)
 
 
 	}
 
-	$($('.repeat')[0].children[0]).append('<div>hello</div>');
-	$($('.repeat')[1].children[0]).append('<div>hello1</div>');
+	//$($('.loop')[0].children[0]).append('<ul>hello</div>');
+	//$($('.loop')[1].children[0]).append('<div>hello1</div>');
 
 	//console.log(list_api_cmd);
 	//$('.repeat')[0].attributes['data-api'].value
